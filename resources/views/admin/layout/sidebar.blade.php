@@ -7,7 +7,49 @@
   <span class="align-middle"><img src="{{ asset($logo) }}" alt="" width="80"></span>
 </a>
 
+
+
         <ul class="sidebar-nav">
+
+            <li class="sidebar-header">
+                Manage Product
+            </li>
+
+            <li class="sidebar-item <?php  echo PAGE=='product'?'active':'' ?>">
+                <a data-target="#product" data-toggle="collapse" class="sidebar-link" aria-expanded="false">
+  <i class="fas fa-envelope"></i> <span class="align-middle">Product</span>
+    </a>
+                <ul id="product" class="sidebar-dropdown list-unstyled collapse <?php  echo PAGE=='product'?'show':'' ?>" data-parent="#sidebar" style="">
+
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.product.create')}}">Add Product</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.product')}}">All Product</a></li>
+                    <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.deactiveproduct')}}">Deactivate Products</a></li>
+
+                </ul>
+            </li>
+
+
+            <li class="sidebar-header">
+                Manage Order
+             </li>
+
+             <li class="sidebar-item <?php  echo PAGE=='order'?'active':'' ?>">
+                 <a data-target="#order" data-toggle="collapse" class="sidebar-link" aria-expanded="false">
+   <i class="fas fa-plane-departure"></i> <span class="align-middle">Order Tracking</span>
+     </a>
+                 <ul id="order" class="sidebar-dropdown list-unstyled collapse <?php  echo PAGE=='order'?'show':'' ?>" data-parent="#sidebar" style="">
+                     <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.order.new')}}">New Order</a></li>
+                     <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.order.processing')}}">Order in Process</a></li>
+                     <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.order.shipping')}}">Shipped Order</a></li>
+                     <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.order.deliver')}}">Delivered Order</a></li>
+                     <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.order.cancel')}}">Cancelled Order</a></li>
+                     <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.order.all')}}">All Order</a></li>
+                 </ul>
+             </li>
+
+
+             @if (__getAdmin()->role==1)
+
             <li class="sidebar-header">
                 Pages
             </li>
@@ -53,61 +95,9 @@
             </li>
 
 
-            <li class="sidebar-header">
-                Manage Product
-            </li>
-
-            <li class="sidebar-item <?php  echo PAGE=='product'?'active':'' ?>">
-                <a data-target="#product" data-toggle="collapse" class="sidebar-link" aria-expanded="false">
-  <i class="fas fa-envelope"></i> <span class="align-middle">Product</span>
-    </a>
-                <ul id="product" class="sidebar-dropdown list-unstyled collapse <?php  echo PAGE=='product'?'show':'' ?>" data-parent="#sidebar" style="">
-
-                    <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.product.create')}}">Add Product</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.product')}}">All Product</a></li>
-                    <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.deactiveproduct')}}">Deactivate Products</a></li>
-
-                </ul>
-            </li>
-
-
-            <li class="sidebar-header">
-                Manage Order
-             </li>
-
-             <li class="sidebar-item <?php  echo PAGE=='order'?'active':'' ?>">
-                 <a data-target="#order" data-toggle="collapse" class="sidebar-link" aria-expanded="false">
-   <i class="fas fa-plane-departure"></i> <span class="align-middle">Order Tracking</span>
-     </a>
-                 <ul id="order" class="sidebar-dropdown list-unstyled collapse <?php  echo PAGE=='order'?'show':'' ?>" data-parent="#sidebar" style="">
-                     <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.order.new')}}">New Order</a></li>
-                     <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.order.processing')}}">Order in Process</a></li>
-                     <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.order.shipping')}}">Shipped Order</a></li>
-                     <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.order.deliver')}}">Delivered Order</a></li>
-                     <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.order.cancel')}}">Cancelled Order</a></li>
-                     <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.order.all')}}">All Order</a></li>
-                 </ul>
-             </li>
 
 
              {{-- <li class="sidebar-header">
-                Vendor Management
-             </li>
-
-             <li class="sidebar-item <?php  echo PAGE=='vmanagement'?'active':'' ?>">
-                 <a data-target="#vmanagement" data-toggle="collapse" class="sidebar-link" aria-expanded="false">
-   <i class="fas fa-user"></i> <span class="align-middle">Vendor List</span>
-     </a>
-                 <ul id="vmanagement" class="sidebar-dropdown list-unstyled collapse <?php  echo PAGE=='vmanagement'?'show':'' ?>" data-parent="#sidebar" style="">
-                     <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.vendor.new')}}">New Vendor</a></li>
-                     <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.vendor')}}">All Vendors</a></li>
-                     <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.vendor.membership')}}">Membership</a></li>
-                     <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.vendor.newcoupon')}}">Pending Vendor Coupons</a></li>
-                     <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.vendor.coupon')}}">All Vendor Coupons</a></li>
-                 </ul>
-             </li> --}}
-
-             <li class="sidebar-header">
                 Account Management
              </li>
 
@@ -120,7 +110,7 @@
                      <li class="sidebar-item"><a class="sidebar-link" href="{{route('admin.payment.vendor')}}">Vendor Payment History</a></li>
 
                  </ul>
-             </li>
+             </li> --}}
 
 
 
@@ -183,6 +173,8 @@
       <i class="fas fa-male"></i> <span class="align-middle">Contact List</span>
     </a>
             </li>
+            @endif
+
         </ul>
     </div>
 </nav>

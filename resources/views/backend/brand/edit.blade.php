@@ -5,24 +5,24 @@
 @endphp
 
 <div class="card">
-        <h3>Edit Subcategory</h3>
+        <h3>Edit Brand</h3>
 
     <div class="card-body">
 
-        <form action="{{route('admin.subcategory.update')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('admin.brand.update')}}" method="POST" enctype="multipart/form-data">
             @csrf
-            <input type="hidden" name="id" value="{{$subcategory->id}}" />
+            <input type="hidden" name="id" value="{{$brand->id}}" />
             <div class="mb-3">
-                <label class="form-label">Subcategory</label>
+                <label class="form-label">Brand</label>
                 <input type="text" name="subcategory" class="form-control"  value="{{$subcategory->subcategory}}">
             </div>
             <div class="mb-3">
-                <label class="form-label">Select Brand</label>
+                <label class="form-label">Select subcategory</label>
                 <select name="category" id="" class="form-control">
-                    @foreach ($category as $item)
-                    <option value="{{$item->id}}" @if ($item->id==$subcategory->category_id)
+                    @foreach ($subcategories as $subcategory)
+                    <option value="{{$subcategory->id}}" @if ($subcategory->id==$brand->subcategory_id)
                         selected
-                    @endif>{{$item->category}}</option>
+                    @endif>{{$subcategory->name}}</option>
 
                     @endforeach
                 </select>
@@ -33,7 +33,7 @@
                     <input name="file" type="file" class="file-upload-field" value="">
                   </div>
                   <br>
-                  <img src="{{asset($subcategory->image)}}" alt="{{$subcategory->category}}" width="100">
+                  <img src="{{asset($brand->image)}}" alt="{{$brand->name}}" width="100">
             </div>
 
             <button type="submit" class="btn btn-primary">update</button>

@@ -15,8 +15,56 @@ Route::middleware('guest:admin')->group(function(){
 
 //admin guard middleware
 Route::middleware('auth:admin')->name('admin.')->group(function () {
-    // Admin profile
+
+
+// Product Color
+Route::get('/productcolor/create/{id}','backend\ProductcolorController@create')->name('color.create');
+Route::post('/productcolor/store','backend\ProductcolorController@store')->name('color.store');
+Route::get('/productcolor/edit/{id}/','backend\ProductcolorController@edit')->name('color.edit');
+Route::post('/productcolor/edit/','backend\ProductcolorController@update')->name('color.update');
+Route::get('/product/productcolor/{id}/{table}','backend\ProductcolorController@destroy')->name('color.delete');
+Route::get('/productcolor/active/{id}/{table}','backend\ProductvariationController@active')->name('productcolor.active');
+Route::get('/product/productcolor/{id}/{table}','backend\ProductvariationController@deactive')->name('productcolor.deactive');
+
+Route::get('/product','backend\ProductController@index')->name('product');
+Route::get('/deactiveproduct','backend\ProductController@deactiveproduct')->name('deactiveproduct');
+Route::get('/product/create','backend\ProductController@create')->name('product.create');
+Route::post('/product/store','backend\ProductController@store')->name('product.store');
+Route::get('/product/edit/{id}/','backend\ProductController@edit')->name('product.edit');
+Route::post('/product/edit/','backend\ProductController@update')->name('product.update');
+Route::get('/product/show/{id}','backend\ProductController@show')->name('product.show');
+Route::get('/product/active/{id}/{table}','backend\ProductController@active')->name('product.active');
+Route::get('/product/deactive/{id}/{table}','backend\ProductController@deactive')->name('product.deactive');
+Route::get('/product/delete/{id}/{table}','backend\ProductController@destroy')->name('product.delete');
+Route::get('/product/attribute/{id}/','backend\ProductController@addAttribute')->name('product.attribute');
+
+// Product variation
+Route::get('/productvariation/create/{id}','backend\ProductvariationController@create')->name('variation.create');
+Route::post('/productvariation/store','backend\ProductvariationController@store')->name('variation.store');
+Route::get('/productvariation/edit/{id}/','backend\ProductvariationController@edit')->name('variation.edit');
+Route::post('/productvariation/edit/','backend\ProductvariationController@update')->name('variation.update');
+Route::get('/product/productvariation/{id}/{table}','backend\ProductvariationController@destroy')->name('variation.delete');
+Route::get('/productvariation/active/{id}/{table}','backend\ProductvariationController@active')->name('variation.active');
+Route::get('/product/productvariation/{id}/{table}','backend\ProductvariationController@deactive')->name('variation.deactive');
+
+    //  order
+    Route::get('/order/new','backend\OrderController@newOrder')->name('order.new');
+    Route::get('/order/all','backend\OrderController@All')->name('order.all');
+    Route::post('order/filter','backend\OrderController@filter');
+
+    Route::get('/order/processing','backend\OrderController@processOrder')->name('order.processing');
+    Route::get('/order/shipping','backend\OrderController@shippingOrder')->name('order.shipping');
+    Route::get('/order/deliver','backend\OrderController@deliverOrder')->name('order.deliver');
+    Route::get('/order/cancel','backend\OrderController@cancelOrder')->name('order.cancel');
+    Route::get('/order/status/{id}/{hid}','backend\OrderController@changeOrderStatus');
+    Route::get('/order/show/{id}','backend\OrderController@show')->name('order.show');
+    Route::get('/order/export','backend\OrderController@export')->name('order.export');
     Route::get('/dashboard','Admin\AuthController@show')->name('dashboard');
+
+
+Route::middleware('isAdmin')->group(function () {
+
+    // Admin profile
     Route::get('/profile','Admin\AuthController@profile')->name('profile');
     Route::post('/update-profile','Admin\AuthController@update')->name('profile.update');
     Route::post('/change-password','Admin\AuthController@changePassword')->name('password');
@@ -55,15 +103,15 @@ Route::get('/subcategory/delete/{id}/{table}','backend\SubcategoryController@des
 
 // Model
 
-Route::get('/model','backend\ModalController@index')->name('model');
-Route::get('/model/create','backend\ModalController@create')->name('model.create');
-Route::post('/model/store','backend\ModalController@store')->name('model.store');
-Route::get('/model/edit/{id}/','backend\ModalController@edit')->name('model.edit');
-Route::post('/model/edit/','backend\ModalController@update')->name('model.update');
-Route::get('/model/show/{id}','backend\ModalController@show')->name('model.show');
-Route::get('/model/active/{id}/{table}','backend\ModalController@active')->name('model.active');
-Route::get('/model/deactive/{id}/{table}','backend\ModalController@deactive')->name('model.deactive');
-Route::get('/model/delete/{id}/{table}','backend\ModalController@destroy')->name('model.delete');
+Route::get('/brand','backend\ModalController@index')->name('brand');
+Route::get('/brand/create','backend\ModalController@create')->name('brand.create');
+Route::post('/brand/store','backend\ModalController@store')->name('brand.store');
+Route::get('/brand/edit/{id}/','backend\ModalController@edit')->name('brand.edit');
+Route::post('/brand/edit/','backend\ModalController@update')->name('brand.update');
+Route::get('/brand/show/{id}','backend\ModalController@show')->name('brand.show');
+Route::get('/brand/active/{id}/{table}','backend\ModalController@active')->name('brand.active');
+Route::get('/brand/deactive/{id}/{table}','backend\ModalController@deactive')->name('brand.deactive');
+Route::get('/brand/delete/{id}/{table}','backend\ModalController@destroy')->name('brand.delete');
 
 
 
@@ -80,38 +128,6 @@ Route::get('/part/active/{id}/{table}','backend\PartController@active')->name('p
 Route::get('/part/deactive/{id}/{table}','backend\PartController@deactive')->name('part.deactive');
 Route::get('/part/delete/{id}/{table}','backend\PartController@destroy')->name('part.delete');
 
-
-
-// Product
-
-Route::get('/product','backend\ProductController@index')->name('product');
-Route::get('/deactiveproduct','backend\ProductController@deactiveproduct')->name('deactiveproduct');
-Route::get('/product/create','backend\ProductController@create')->name('product.create');
-Route::post('/product/store','backend\ProductController@store')->name('product.store');
-Route::get('/product/edit/{id}/','backend\ProductController@edit')->name('product.edit');
-Route::post('/product/edit/','backend\ProductController@update')->name('product.update');
-Route::get('/product/show/{id}','backend\ProductController@show')->name('product.show');
-Route::get('/product/active/{id}/{table}','backend\ProductController@active')->name('product.active');
-Route::get('/product/deactive/{id}/{table}','backend\ProductController@deactive')->name('product.deactive');
-Route::get('/product/delete/{id}/{table}','backend\ProductController@destroy')->name('product.delete');
-Route::get('/product/attribute/{id}/','backend\ProductController@addAttribute')->name('product.attribute');
-
-// Product Color
-Route::get('/productcolor/create/{id}','backend\ProductcolorController@create')->name('color.create');
-Route::post('/productcolor/store','backend\ProductcolorController@store')->name('color.store');
-Route::get('/productcolor/edit/{id}/','backend\ProductcolorController@edit')->name('color.edit');
-Route::post('/productcolor/edit/','backend\ProductcolorController@update')->name('color.update');
-Route::get('/product/productcolor/{id}/{table}','backend\ProductcolorController@destroy')->name('color.delete');
-Route::get('/productcolor/active/{id}/{table}','backend\ProductvariationController@active')->name('productcolor.active');
-Route::get('/product/productcolor/{id}/{table}','backend\ProductvariationController@deactive')->name('productcolor.deactive');
-// Product variation
-Route::get('/productvariation/create/{id}','backend\ProductvariationController@create')->name('variation.create');
-Route::post('/productvariation/store','backend\ProductvariationController@store')->name('variation.store');
-Route::get('/productvariation/edit/{id}/','backend\ProductvariationController@edit')->name('variation.edit');
-Route::post('/productvariation/edit/','backend\ProductvariationController@update')->name('variation.update');
-Route::get('/product/productvariation/{id}/{table}','backend\ProductvariationController@destroy')->name('variation.delete');
-Route::get('/productvariation/active/{id}/{table}','backend\ProductvariationController@active')->name('variation.active');
-Route::get('/product/productvariation/{id}/{table}','backend\ProductvariationController@deactive')->name('variation.deactive');
 
 // coupon
 Route::get('/coupon','backend\CouponController@index')->name('coupon');
@@ -231,19 +247,6 @@ Route::post('/appointment/paidstatus','backend\AppointmentController@paidStatus'
 Route::get('/appointment/complete','backend\AppointmentController@complete')->name('appointment.complete');
 
 
-    //  order
-    Route::get('/order/new','backend\OrderController@newOrder')->name('order.new');
-    Route::get('/order/all','backend\OrderController@All')->name('order.all');
-    Route::post('order/filter','backend\OrderController@filter');
-
-    Route::get('/order/processing','backend\OrderController@processOrder')->name('order.processing');
-    Route::get('/order/shipping','backend\OrderController@shippingOrder')->name('order.shipping');
-    Route::get('/order/deliver','backend\OrderController@deliverOrder')->name('order.deliver');
-    Route::get('/order/cancel','backend\OrderController@cancelOrder')->name('order.cancel');
-    Route::get('/order/status/{id}/{hid}','backend\OrderController@changeOrderStatus');
-    Route::get('/order/show/{id}','backend\OrderController@show')->name('order.show');
-    Route::get('/order/export','backend\OrderController@export')->name('order.export');
-
 // user List
     Route::get('/user/list','Admin\AuthController@UserList')->name('user.list');
     Route::get('/chart',function(){
@@ -261,7 +264,7 @@ Route::get('/payment/create/','backend\PaymentController@create')->name('payment
 Route::post('/payment/store/','backend\PaymentController@store')->name('payment.store');
 Route::get('/payment/show/{id}','backend\PaymentController@show')->name('vendor.payment.show');
 
-
+});
 });
 
 // getting subcategory,modal,part using ajax

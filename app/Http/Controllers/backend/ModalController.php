@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Traits\status;
+use App\Models\Brand;
 use App\Models\Subcategory;
 use App\Models\Modal;
 use File;
@@ -21,8 +22,8 @@ class ModalController extends Controller
      */
     public function index()
     {
-        $modal=Modal::orderBy('id','desc')->get();
-       return view('backend.model.index',compact('modal'));
+        $brand=Brand::orderBy('id','desc')->get();
+       return view('backend.brand.index',compact('brand'));
     }
 
     /**
@@ -32,35 +33,11 @@ class ModalController extends Controller
      */
     public function create()
     {
-        $category=Category::all();
-       return view('backend.model.create',compact('category'));
+       return view('backend.brand.create');
 
     }
 
 
-    public function loadData($table,$id,$option){
-
-        if($table=='category'){
-
-            $sub=Subcategory::where('category_id',$id)->get();
-            $data='';
-
-        foreach ($sub as $value) {
-            $data.="<option value='".$value->id."'>".$value->subcategory."</option>";
-        }
-                    return response()->json($data);
-        }
-        if($table=='subcategory'){
-            $sub=Modal::where('category_id',$option)->where('subcategory_id',$id)->get();
-            $data='';
-
-        foreach ($sub as $value) {
-            $data.="<option value='".$value->id."'>".$value->modal."</option>";
-        }
-                    return response()->json($data);
-        }
-
-    }
     /**
      * Store a newly created resource in storage.
      *
@@ -70,12 +47,7 @@ class ModalController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'subcategory'=>'required',
-            'category'=>'required',
-            'modal'=>'required',
-
-
-
+            'name'=>'required',
         ]);
         try {
 

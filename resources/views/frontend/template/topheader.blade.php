@@ -1,17 +1,17 @@
 <style>
-	/* .nav-fix{
-	  background: #fff!important;
-	  position: fixed!important;
-	  z-index: 999;
-	  width: 100%;
-	  top: 0;
-	} */
+	.icon-area .fas{
+        color: #002658!important;
+    }
 	.header{
 		transition: all .5s ease-in-out;
 	}
 	.widget-header .text{
 		overflow: visible!important;
 	}
+    .dropdown-menu{
+        box-shadow: none!important;
+        border-radius:2px;
+    }
   </style>
 
 @php
@@ -137,7 +137,7 @@
 					<div class="widget-header d-none d-sm-inline">
 						<a href="#" class="widget-view" data-target="#exampleModal" data-toggle="modal">
 							<div class="icon-area">
-								<i class="fa fa-store "></i>
+								<i class="fas fa-store "></i>
 							</div>
 							<small class="text"> Order Tracking </small>
 						</a>
@@ -179,14 +179,12 @@
 					@endif
 					</a>
 					  @if (count($sub)>0)
-					  <div class="dropdown-menu dropdown-large">
-						  <div class="row">
+					  <div class="dropdown-menu ">
 
 						 @foreach ($sub as $subitem)
-						<div class="col-md-3"><a href="{{ route('store.subcategory',['id'=>$subitem->id,'name'=>$subitem->subcategory]) }}">{{ $subitem->subcategory }}</a></div>
+						<div class="p-2 border-bottom"><a href="{{ route('store.subcategory',['id'=>$subitem->id,'name'=>$subitem->subcategory]) }}">{{ $subitem->subcategory }}</a></div>
 
 						 @endforeach
-						</div>
 
 					</div>
 					@endif

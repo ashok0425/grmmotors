@@ -193,7 +193,6 @@
         </div>
     </div>
 @endif
-
     </td>
     <td>
         {{ $item->qty }}
@@ -203,12 +202,8 @@
         {{ $item->comission }}%
     </td>
 
-
-
     <td>
-
         {{ number_format($item->price_after_comission*$item->qty,2) }}
-
     </td>
 </tr>
     @endforeach

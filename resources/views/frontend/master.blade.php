@@ -71,6 +71,43 @@
 .border_bg{
     color:#60c3d3!important;
 }
+.bg-info {
+    background-color: #089ECD !important;
+}
+.section-subscribe {
+    background-color: #002658!important;
+}
+
+.bg-secondary {
+    background-color: #002658!important;
+}
+
+.footer-bottom {
+    border-color: #fff!important;
+}
+.btn-primary{
+    background-color: #002658!important;
+
+}
+.owl-carousel .owl-nav button.owl-next{
+    position: absolute;
+    right:-7px ;
+    top: 40%;
+font-size: 40px!important;
+background: #f3f3f3!important;
+padding:0 .8rem!important;
+box-shadow: 0 0 5px gray;
+}
+.owl-carousel .owl-nav button.owl-prev{
+    position: absolute;
+    left:-7px ;
+    top: 40%;
+    font-size: 40px!important;
+    background: #f3f3f3!important;
+    padding:0 .8rem!important;
+    box-shadow: 0 0 5px gray;
+
+}
 	.rstar{
 		color: #fe0905!important;
 	}
@@ -159,12 +196,6 @@ z-index: 9999;
 <b class="screen-overlay"></b>
 
 <header class="section-header">
-    {{-- top header  --}}
-
-
-    {{-- navbar  --}}
-
-    {{-- @include('frontend.template.header') --}}
 
 	@include('frontend.template.topheader')
 
@@ -415,7 +446,6 @@ $('#carttotal').html(data['carttotal'])
 $('#subtotal').html(data['carttotal'])
 $('#grandtotal').html(data['grandtotal'])
 
-				   console.log(data);
 			   }
 		   })
 		})
