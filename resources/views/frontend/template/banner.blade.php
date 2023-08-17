@@ -5,7 +5,7 @@
       <div class="card-body p-md-0 m-md-0">
 
     <div class="row ">
-      <aside class=" col-md-3 flex-lg-grow-0 ">
+      {{-- <aside class=" col-md-3 flex-lg-grow-0 ">
         <nav class="nav-home-aside py-3 pl-3">
           <h6 class="title-category">MY MARKETS <i class="d-md-none icon fa fa-chevron-down"></i></h6>
           <ul class="menu-category">
@@ -34,8 +34,8 @@
 
           </ul>
         </nav>
-      </aside> <!-- col.// -->
-      <div class="col-md-9">
+      </aside> <!-- col.// --> --}}
+      <div class="col-md-12">
 
     <!-- ================== COMPONENT SLIDER  BOOTSTRAP  ==================  -->
     <div id="carousel1_indicator" class="slider-home-banner carousel slide" data-ride="carousel">
