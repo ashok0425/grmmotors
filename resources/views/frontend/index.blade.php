@@ -5,19 +5,15 @@
 
 @include('frontend.template.banner')
 
-@include('frontend.template.add')
 
 @include('frontend.template.featured')
-@include('frontend.template.add1')
-
-
+@include('frontend.template.add')
 @include('frontend.template.newarrival')
-@include('frontend.template.add2')
-
+@include('frontend.template.add1')
 @include('frontend.template.bestseller')
-@include('frontend.template.add3')
-
+@include('frontend.template.add2')
 @include('frontend.template.toprated')
+@include('frontend.template.add3')
 
 
 <!-- container end.// -->
