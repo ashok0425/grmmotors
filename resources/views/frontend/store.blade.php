@@ -129,7 +129,7 @@ margin-top: .3rem;;
 
             <a href="{{ route('product',['id'=>$item->id,'name'=>$item->name]) }}" class="img-wrap"> <img src="{{ asset($item->image) }}" alt="{{ $item->name }}"> </a>
             <figcaption class="info-wrap ">
-                <a href="{{ route('product',['id'=>$item->id,'name'=>$item->name]) }}" class="title">{{Str::limit($item->name,18) }}</a>
+                <a href="{{ route('product',['id'=>$item->id,'name'=>$item->name]) }}" class="title">{{Str::limit($item->name,15) }}</a>
                 {{-- <ul class="rating-stars my-0 py-0">
                   @php
                 $rev=DB::table('productreviews')->where('product_id',$item->id)->avg('rating');
