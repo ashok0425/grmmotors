@@ -275,7 +275,7 @@ $data.=	"<div class='col-md-3 col-6 col-sm-3 product_wrap mb-1'>
 
         $data.="<a href='".route('product',['id'=>$item->id,'name'=>$item->name])."' class='img-wrap'> <img src='". asset($item->image)."'> </a>
     <figcaption class='info-wrap '>
-        <a href='".route('product',['id'=>$item->id,'name'=>$item->name])."' class='title'>". \Str::limit($item->name,15) ."</a>
+        <a href='".route('product',['id'=>$item->id,'name'=>$item->name])."' class='title'>". \Str::limit($item->name,20) ."</a>
 
 
         <div class='price mt-1'>". __getPriceunit() .' '. number_format($item->price_after_comission)."</div>

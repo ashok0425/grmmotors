@@ -17,7 +17,7 @@
                         <a href="{{ route('product',['id'=>$item->id,'name'=>$item->name]) }}" class="img-wrap my-0 py-0 text-center d-flex mx-auto"> <img src="{{ asset($item->image) }}" alt="{{ $item->name }}"> </a>
                         <figcaption class="info-wrap d-flex justify-content-between">
                         <span>
-                            <a href="{{ route('product',['id'=>$item->id,'name'=>$item->name]) }}" class="title">{{Str::limit($item->name,15) }}</a>
+                            <a href="{{ route('product',['id'=>$item->id,'name'=>$item->name]) }}" class="title">{{Str::limit($item->name,20) }}</a>
                             <div class="price my-0 py-0"><span id="price">{{ __getPriceunit()}} </span>{{number_format($item->price_after_comission) }}</div> <!-- price-wrap.// -->
 
                         </span>

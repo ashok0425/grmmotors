@@ -151,7 +151,9 @@ box-shadow: 0 0 5px gray;
 	#price{
 		font-size: .8rem;
 	}
-
+    [class*='card-product'] a.title,.price{
+        font-size: 14px;
+    }
 	.loading{
 	  background: rgba(0,0,0,.4);
 	  width: 100%;
