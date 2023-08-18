@@ -152,7 +152,7 @@ box-shadow: 0 0 5px gray;
 		font-size: .8rem;
 	}
     [class*='card-product'] a.title,.price{
-        font-size: 14px;
+        font-size: 13px;
     }
 	.loading{
 	  background: rgba(0,0,0,.4);
