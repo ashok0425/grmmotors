@@ -123,13 +123,13 @@ margin-top: .3rem;;
 <div class="row row-sm product_grid">
     @foreach ($product as $item)
 
-                <div class="col-xl-m col-lg-2 col-md-3 col-6 col-sm-3 product_wrap mb-1">
+                <div class=" col-md-3 col-6 col-sm-3 product_wrap mb-1">
 
         <div class="card card-sm card-product-grid">
 
             <a href="{{ route('product',['id'=>$item->id,'name'=>$item->name]) }}" class="img-wrap"> <img src="{{ asset($item->image) }}" alt="{{ $item->name }}"> </a>
             <figcaption class="info-wrap ">
-                <a href="{{ route('product',['id'=>$item->id,'name'=>$item->name]) }}" class="title">{{ $item->name }}</a>
+                <a href="{{ route('product',['id'=>$item->id,'name'=>$item->name]) }}" class="title">{{Str::limit($item->name,18) }}</a>
                 {{-- <ul class="rating-stars my-0 py-0">
                   @php
                 $rev=DB::table('productreviews')->where('product_id',$item->id)->avg('rating');
