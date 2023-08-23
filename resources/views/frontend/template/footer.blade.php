@@ -34,7 +34,7 @@
 		<section class="footer-top padding-y-lg text-white pl-md-5">
 			<div class="row">
                 <aside class="col-md-3 col-6">
-					<h6 class="title">FastshopNepal</h6>
+					<h6 class="title">mgrmotors.com</h6>
 					<ul class="list-unstyled">
 						<li class="my-3"><i class="fas fa-map-marker-alt "></i>&nbsp;&nbsp;&nbsp; {{$set->address1}}</li>
 						<li class="my-3"><i class="fas fa-envelope "></i> <a href="mailto:{{$set->email1}}">&nbsp; {{$set->email1}}</a></li>

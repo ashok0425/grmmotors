@@ -94,7 +94,7 @@ Route::post('order/track/status','Frontend\OrderController@orderTrack')->name('t
 Route::get('loadproduct/{name}/{catgeory?}','Frontend\ProductController@search');
 
 // Product details
-Route::get('product/{id}/{name?}','Frontend\ProductController@productDetail')->name('product');
+Route::get('product/{id}','Frontend\ProductController@productDetail')->name('product');
 Route::get('loadimage/{val}/','Frontend\ProductController@loadImage');
 Route::get('loadprice/{val}/{vid}','Frontend\ProductController@loadPrice');
 Route::post('product/cart/coupon','Frontend\CartController@vendorCoupon')->name('vendorcoupon');
