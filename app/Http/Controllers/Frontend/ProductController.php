@@ -56,7 +56,7 @@ return response()->json($data);
 
 
 
-public function productDetail($id,$name){
+public function productDetail($id,$name=null){
 
 
 try {
