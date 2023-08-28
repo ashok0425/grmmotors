@@ -151,6 +151,9 @@ box-shadow: 0 0 5px gray;
 	#price{
 		font-size: .8rem;
 	}
+    .slider-home-banner .carousel-item img{
+        object-fit: fill!important;
+    }
     [class*='card-product'] a.title,.price{
         font-size: 13px;
     }
