@@ -6,7 +6,7 @@ $banner=DB::table('advertisments')->where('status',1)->first();
    <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <img src="{{asset($banner->image)}}" alt="" class="w-100" style="height:200px;object-fit:cover">
+            <img src="{{asset($banner->image)}}" alt="" class="w-100" style="height:200px;">
         </div>
     </div>
    </div>
